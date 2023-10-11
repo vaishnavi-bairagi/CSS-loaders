@@ -1,0 +1,76 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  min-height: 100vh;
+  background: linear-gradient(to bottom,rgb(88, 192, 230),rgb(20, 160, 210));
+}
+.loaders{
+  display: flex;
+  gap: 30px;
+  width: 100vw;
+  height: 100vh;
+  padding: 30px;
+}
+
+.loader-circle{
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  position: relative;
+}
+
+.loader-circle .stripes{
+  width: 10%;
+  height: 32%;
+  background: #fff;
+  border-radius: 20px;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+  opacity: 1;
+  transform: rotate(calc(var(--i) * 30deg)) translate(0, -120%);
+  animation: spin 1s linear infinite;
+  animation-delay: calc(var(--i) * -0.9s);
+}
+
+@keyframes spin{
+  from{
+    opacity: 1;
+  }
+  to{
+    opacity: 0.25;
+  }
+}
+
+.spinner-two{
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.spinner-two .spinner{
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  left: 40%;
+  top: 40%;
+  transform: rotate(calc(var(--v) * 20deg)) translate(0,2rem);
+  animation: rotateLoader 1s linear infinite;
+  animation-delay: calc(var(--v) * -0.93s);
+}
+@keyframes rotateLoader{
+  0%{
+    transform: rotate(calc(var(--v) * 20deg)) translate(0,2rem)  scale(0.5);
+  }
+  50%{
+    transform: rotate(calc(var(--v) * 40deg)) translate(0,2rem) scale(0.8);
+  }
+  100%{
+    transform: rotate(calc(var(--v) * 50deg)) translate(0,2rem) scale(1.4);
+  }
+}
